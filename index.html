@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 <head>
     <meta charset="utf-8">
@@ -12,109 +13,148 @@
     <link rel="shortcut icon" href="favicon.ico">
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="email=no">
-    <link rel="stylesheet" href="css/2c8beab8911.css">
-    <script src="https://client.crisp.chat/l.js" async=""></script>
-
     <style>
+        /* 优化后的CSS */
+        :root {
+            --primary-color: #3498db;
+            --warning-color: #e74c3c;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: #f9f9f9;
-            color: #333;
             margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
+            padding: 20px;
+            line-height: 1.6;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
 
         .container {
             width: 90%;
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .index_title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: center;
         }
 
         .index_icon_size {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 20px;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            display: block;
         }
 
         .index_main_title {
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .index_main_title span {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--warning-color);
+            margin-top: 0.5rem;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
         }
 
         .index_download_button_wrap {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            text-align: center;
-            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), #2980b9);
+            color: white !important;
+            border-radius: 8px;
             text-decoration: none;
-            font-size: 14px;
+            font-weight: 500;
+            transition: transform 0.2s ease;
         }
-
         .index_download_button_wrap:hover {
-            background-color: #0056b3;
+            transform: translateY(-2px);
         }
 
         .download-help {
-            font-size: 12px;
-            color: #777;
-            margin-top: 20px;
+            background: #fff3f3;
+            border: 1px solid #ffd6d6;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            font-size: 0.875rem;
+            color: var(--warning-color);
+            line-height: 1.5;
         }
 
         .modalBottomLine {
-            margin-top: 30px;
-            font-size: 14px;
-            color: #333;
-            text-align: left;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
         }
-
         .drawer_accentText {
-            font-weight: bold;
-            color: #d9534f;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.1rem;
         }
-
         .drawer_lightText {
-            color: #666;
+            color: var(--text-light);
+            font-size: 0.9375rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--primary-color);
+            margin: 1rem 0;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .container {
-                padding: 15px;
+                width: 95%;
+                padding: 1.5rem;
             }
-
             .index_title {
-                font-size: 20px;
+                font-size: 1.75rem;
             }
+            .index_icon_size {
+                width: 80px;
+                height: 80px;
+            }
+            iframe {
+                height: 220px !important;
+            }
+        }
 
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 1rem;
+            }
+            .index_title {
+                font-size: 1.5rem;
+            }
             .index_main_title {
-                font-size: 16px;
+                font-size: 1.1rem;
             }
-
-            .index_download_button_wrap {
-                padding: 8px 15px;
-                font-size: 13px;
-            }
-
-            .modalBottomLine {
-                font-size: 13px;
+            iframe {
+                height: 180px !important;
             }
         }
     </style>
@@ -126,7 +166,7 @@
             <img class="index_icon_size" src="https://www.shadowrocketdownload.com/img/logo.png" alt="樱花云 Logo">
             <div class="index_main_title">Shadowrocket<span>（如需验证 请稍后尝试，账号20分钟刷新一次）</span></div>
             <iframe width="100%" height="270px" src="https://u.fast6.xyz/share/a?access_token=d5cda34965d4559bf7c26d265cc4e324" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <div>
+            <div class="button-container">
                 <a href="https://www.qukemao.xyz/" target="_blank" class="index_download_button_wrap">小火箭节点购买</a>
                 <a href="https://www.nkx.me/" target="_blank" class="index_download_button_wrap">购买独享ID</a>
             </div>
@@ -134,7 +174,7 @@
         </div>
         <div class="modalBottomLine">
             <div class="drawer_accentText">步骤一: 登录上方共享id到苹果应用商店，然后下载小火箭</div>
-          <a href="https://apps.apple.com/us/app/shadowrocket/id932747118" class="js-report-btn" data-url="点我下载">  【点我下载进入下载页面】</a>
+            <a href="https://apps.apple.com/us/app/shadowrocket/id932747118" class="index_download_button_wrap">【点我进入App Store下载页面】</a>
             <div class="drawer_lightText">
                 1. 如您已下载小火箭(Shadowrocket)，请跳到步骤二；<br>
                 2. 打开AppStore，右上角退出已有账号，登录共享id提供的账号，下载(Shadowrocket)<br>
@@ -142,7 +182,7 @@
                 4. 若账号问题，请联系右下角客服 ，根据客服提示操作；<br>
                 5. 下载完成后请退出共享的id，并切换回自己的id。
             </div>
-            <div class="drawer_accentText mt-15">步骤二：注册并登录官网</div>
+            <div class="drawer_accentText">步骤二：注册并登录官网</div>
             <div class="drawer_lightText">
                 1. 登录官网后，点击主页一键订阅，点击一键导入到Shadowrocket<br>
                 2. 选择线路连接，如若网络不可用，请更换线路或登录官网检查是否到期；<br>
